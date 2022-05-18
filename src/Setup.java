@@ -23,6 +23,7 @@ public class Setup {
         Element beta = pars.getZp().newRandomElement().getImmutable();
         Element g1 = g.powZn(alpha).getImmutable();
         Element g2 = pars.getG().newRandomElement().duplicate().getImmutable();
+        Element Y = pairing.pairing(g2, g).duplicate().powZn(beta).getImmutable();
         Element[] t = new Element[n + 1];
         Element[] l = new Element[n + 1];
         for (int i = 0; i < n + 1; i++) {
@@ -32,6 +33,7 @@ public class Setup {
         pars.set_g(g);
         pars.setG1(g1);
         pars.setG2(g2);
+        pars.setY(Y);
         pars.setT(t);
         pars.setL(l);
         pars.setAlpha(alpha);

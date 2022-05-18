@@ -3,9 +3,9 @@ import it.unisa.dia.gas.jpbc.Element;
 
 public class DKGen {
     public static Element[][] dKGen(int d, PARS pars, Element[] S_B, Element[] P_A) {
-        Element gama = pars.getZp().newRandomElement().getImmutable();
+        Element gamma = pars.getZp().newRandomElement().getImmutable();
         Polynomial f = Utils.newRandomPolynomial(d, pars.getAlpha().duplicate(), pars);
-        Polynomial h = Utils.newRandomPolynomial(d, gama.duplicate(), pars);
+        Polynomial h = Utils.newRandomPolynomial(d, gamma.duplicate(), pars);
         Polynomial q_prime = Utils.newRandomPolynomial(d, pars.getBeta().duplicate(), pars);
         Element G_ID = pars.getG().newRandomElement().duplicate().getImmutable();
         Element[] D_i = new Element[S_B.length];

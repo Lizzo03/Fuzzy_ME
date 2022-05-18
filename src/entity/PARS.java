@@ -7,6 +7,7 @@ public class PARS {
     private Element g;
     private Element g1;
     private Element g2;
+    private Element Y;
     private Element[] t;
     private Element[] l;
     private Element alpha;
@@ -35,6 +36,13 @@ public class PARS {
     }
     public void setG2(Element g2) {
         this.g2 = g2;
+    }
+
+    public Element getY() {
+        return Y;
+    }
+    public void setY(Element Y) {
+        this.Y = Y;
     }
 
     public Element[] getT() {
