@@ -1,1 +1,3 @@
-# Fuzzy Identity-based Matchmaking Encryption
+# Fuzzy_ME
+
+Implementation of Fuzzy Identity-based Matchmaking Encryption
