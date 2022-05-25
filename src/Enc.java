@@ -29,18 +29,10 @@ public class Enc {
         for (int i = 0; i < C_3_i.length; i++) {
             Element xi_i = pars.getZp().newRandomElement().getImmutable();
             Element chi_i = pars.getZp().newRandomElement().getImmutable();
-            C_3_i[i] = e_i[i].duplicate().mul(pars.get_g().duplicate().powZn(xi_i.duplicate())).getImmutable();
+            C_3_i[i] = e_i[i].duplicate().powZn(s.duplicate()).mul(pars.get_g().duplicate().powZn(xi_i.duplicate())).getImmutable();
             C_4_i[i] = pars.get_g().duplicate().powZn(chi_i.duplicate()).getImmutable();
-            C_5_i[i] = E_i[i].duplicate().mul(pars.getG2().duplicate().powZn(l.evaluate(S_A[i]).duplicate())).duplicate().mul(Utils.H(S_A[i].duplicate(), pars).duplicate().powZn(xi_i.duplicate())).duplicate().mul(pars.getPairing().getG1().newElementFromBytes(Utils.byteMergerAll(C_0.toBytes(), C_1.toBytes(), C_2.toBytes(), C_1_i[i].toBytes(), C_2_i[i].toBytes(), C_3_i[i].toBytes(), C_4_i[i].toBytes())).duplicate().powZn(chi_i.duplicate()));
+            C_5_i[i] = E_i[i].duplicate().powZn(s.duplicate()).mul(pars.getG2().duplicate().powZn(l.evaluate(S_A[i]).duplicate())).duplicate().mul(Utils.H(S_A[i].duplicate(), pars).duplicate().powZn(xi_i.duplicate())).duplicate().mul(pars.getPairing().getG1().newElementFromBytes(Utils.byteMergerAll(C_0.toBytes(), C_1.toBytes(), C_2.toBytes(), C_1_i[i].toBytes(), C_2_i[i].toBytes(), C_3_i[i].toBytes(), C_4_i[i].toBytes())).duplicate().powZn(chi_i.duplicate()));
         }
-
-//        Element[] S_A_prime = new Element[d];
-//        System.arraycopy(S_A, 0, S_A_prime, 0, S_A_prime.length);
-//        Element K_l = pars.getGT().newOneElement().getImmutable();
-//        for (int i = 0; i < S_A_prime.length; i++) {
-//            K_l = K_l.mul(pars.getPairing().pairing(E_i[i], pars.get_g().duplicate().powZn(s)).div(pars.getPairing().pairing(e_i[i], Utils.H(S_A_prime[i].duplicate(), pars).powZn(s))).powZn(Utils.delta(pars.getZp().newZeroElement(), S_A_prime[i].duplicate(), S_A_prime, pars))).getImmutable();
-//        }
-//        Element C =  M.duplicate().mul(K_s.duplicate()).mul(K_l.duplicate()).getImmutable();
 
         List<Object> result = new ArrayList<>();
         result.add(C_0);

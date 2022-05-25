@@ -8,7 +8,7 @@ import static jdk.nashorn.internal.ir.debug.ObjectSizeCalculator.getObjectSize;
 
 public class TimeTest {
     public static void main(String[] args) {
-        int timeToTest = 1;
+        int timeToTest = 20;
         int n, d;
         PARS pars;
         Element[] S_A, S_B, P_A, P_B, E_i, e_i, D_i, d_i, D_i_prime, d_i_prime, C_1_i, C_2_i, C_3_i, C_4_i, C_5_i;

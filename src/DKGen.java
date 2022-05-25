@@ -1,6 +1,8 @@
 import entity.PARS;
 import it.unisa.dia.gas.jpbc.Element;
 
+import java.math.BigInteger;
+
 public class DKGen {
     public static Element[][] dKGen(int d, PARS pars, Element[] S_B, Element[] P_A) {
         Element gamma = pars.getZp().newRandomElement().getImmutable();
@@ -20,7 +22,7 @@ public class DKGen {
         for (int i = 0; i < P_A.length; i++) {
             Element r_i_prime = pars.getZp().newRandomElement().getImmutable();
             d_i_prime[i] = pars.get_g().duplicate().powZn(r_i_prime).getImmutable();
-            D_i_prime[i] = pars.getG2().duplicate().powZn(q_prime.evaluate(P_A[i])).mul(G_ID.powZn(h.evaluate(P_A[i]).negate())).mul(Utils.H(P_A[i], pars).powZn(r_i_prime)).getImmutable();
+            D_i_prime[i] = pars.getG2().duplicate().powZn(q_prime.evaluate(P_A[i]).mul(BigInteger.valueOf(2))).mul(G_ID.powZn(h.evaluate(P_A[i]).negate())).mul(Utils.H(P_A[i], pars).powZn(r_i_prime)).getImmutable();
         }
         return new Element[][]{D_i, d_i, D_i_prime, d_i_prime};
     }
